@@ -12,14 +12,7 @@
 <p>TASK'S DESCRIPTION : <span th:text="${description}"></span></p>
 <p>TASK'S STATUS : <span th:color="green" th:text="${status}"></span></p>
 
-<hr>
-<p th:if="${todos.isEmpty()}"> > LIST IS EMPTY</p>
 
-
-<ul th:unless="${todos.isEmpty()}">
-
-    <li th:each="t : ${todos}"> <span th:text="${t}"></span> </li>
-</ul>
 
 
 </body>
