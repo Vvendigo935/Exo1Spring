@@ -1,6 +1,7 @@
 package org.example.exospring1.controler;
 
 import org.example.exospring1.entity.Todos;
+import org.example.exospring1.service.TodosServiceMTD;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,12 @@ import java.util.List;
 
 @Controller
 public class TodosControler {
+
+    private final TodosServiceMTD todosServiceMTD;
+
+    public TodosControler(TodosServiceMTD todosServiceMTD) {
+        this.todosServiceMTD = todosServiceMTD;
+    }
 
     @RequestMapping("/")
     public String todos(){
@@ -21,7 +28,13 @@ public class TodosControler {
     @RequestMapping("/home/listingall")
     @ResponseBody
     public List<String> getTodos(){
-        return List.of("Task 1", "Task 2", "Task 3", "Task 4");
+        return List.of("Task 1", "Task 2", "Task 3");
+    }
+
+    @RequestMapping("/home/listingstatus")
+    @ResponseBody
+    public List<Boolean> getStatus(){
+        return List.of(true,false,true);
     }
 
 
