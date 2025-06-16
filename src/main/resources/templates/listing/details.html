@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TASK LIST</title>
+</head>
+<body>
+<h1> TASK TO DO </h1>
+
+<hr>
+<p>TASK'S NAME : <span th:text="${name}"></span></p>
+<p>TASK'S DESCRIPTION : <span th:text="${description}"></span></p>
+<p>TASK'S STATUS : <span th:color="green" th:text="${status}"></span></p>
+
+<hr>
+<p th:if="${todos.isEmpty()}"> > LIST IS EMPTY</p>
+
+
+<ul th:unless="${todos.isEmpty()}">
+
+    <li th:each="t : ${todos}"> <span th:text="${t}"></span> </li>
+</ul>
+
+
+</body>
+</html>
